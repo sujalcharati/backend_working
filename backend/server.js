@@ -8,9 +8,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 connectDB();
-app.get('/', (req, res) => {
-    res.json({ message: 'Hello from the server!' });
-  });
+app.get('/login', (req, res) => {
+const email =req.body.email;
+const password =req.body.password;
+return res.status(200).json({
+    msg:`email :${email} and password :${password}`
+})
+});
 
 const PORT = process.env.PORT || 5000;
 
